@@ -1,19 +1,16 @@
 
-export default function Child({age, getDataFromChild,email,isContractor, mobileNumbers, address, first_name, last_name}){
-    
+export default function Child({age, getDataFromChild,email,isContractor, mobileNumbers, address, firstName, last_name}){
     const sendData = ()=>{
         getDataFromChild({
-            age,
-            first_name,
-            mobileNumbers,
-            address
+            a: 100,
+            b: 200
         });
     }
 
     return(
         <>
             <h3>Child component</h3>
-            <p>First Name: {first_name}</p>
+            <p>First Name: {firstName}</p>
             <p>Last Name: {last_name}</p>
             <p>Age: {age}</p>
             <p>Email: {email}</p>

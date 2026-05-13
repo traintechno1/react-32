@@ -1,0 +1,47 @@
+import { createBrowserRouter } from "react-router-dom";
+import Layout from "../pages/layout/Layout";
+import Home from "../pages/home/Home";
+import Employees from "../components/Employees";
+import About from "../pages/about/About";
+import AboutUs from "../pages/about/AboutUs";
+import AboutProduct from "../pages/about/AboutProduct";
+import AboutCustomer from "../pages/about/AboutCustomer";
+
+export const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <Layout/>,
+        children: [
+            {
+                index: true,
+                element: <Home />
+            },
+            {
+                path: 'employee',
+                element: <Employees/>
+            },
+            {
+                path: 'about',
+                element: <About/>,
+                children:[
+                    {
+                        index: true,
+                        element: <AboutUs/>
+                    },
+                    {
+                        path: "us",
+                        element: <AboutUs />
+                    },
+                    {
+                        path: "products",
+                        element: <AboutProduct />
+                    },
+                    {
+                        path: "customers",
+                        element: <AboutCustomer />
+                    }
+                ]
+            },
+        ]
+    }
+])

@@ -1,11 +1,10 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import Parent from "./components/Parent";
-import Child from "./components/Child";
+import Employees from "./components/Employees";
 function App() {
 
   return (
     <>
-      <Parent/>
+      <Employees></Employees>
     </>
   )
 }

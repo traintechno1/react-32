@@ -10,7 +10,7 @@ export default function Parent(){
             <div>
                 <h2>Parent component</h2>
                 <Child 
-                    first_name="Saurabh" 
+                    firstName="Saurabh" 
                     last_name="Varpe" 
                     age={25} 
                     email="saurabh.varpe@gmail.com"
