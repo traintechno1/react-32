@@ -6,6 +6,7 @@ import About from "../pages/about/About";
 import AboutUs from "../pages/about/AboutUs";
 import AboutProduct from "../pages/about/AboutProduct";
 import AboutCustomer from "../pages/about/AboutCustomer";
+import Register from "../pages/register/Register";
 
 export const router = createBrowserRouter([
     {
@@ -19,6 +20,10 @@ export const router = createBrowserRouter([
             {
                 path: 'employee',
                 element: <Employees/>
+            },
+            {
+                path: 'register',
+                element: <Register/>
             },
             {
                 path: 'about',
