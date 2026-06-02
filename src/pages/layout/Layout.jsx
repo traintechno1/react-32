@@ -16,7 +16,13 @@ export default function Layout(){
                         <NavLink to="/about">About</NavLink>
                     </li>
                     <li className="nav-item">
+                        <NavLink to="/transact">Transact</NavLink>
+                    </li>
+                    <li className="nav-item">
                         <NavLink to="/register">Register</NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink to="/login">Login</NavLink>
                     </li>
                 </ul>
             </div>

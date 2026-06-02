@@ -3,6 +3,7 @@ import { z } from "zod";
 import { zodResolver } from  "@hookform/resolvers/zod";
 import "./Register.css";
 import axios from "axios";
+import { Bounce, ToastContainer, toast } from "react-toastify";
 
 const formSchema = z.object({
     first_name: z.string()
@@ -60,8 +61,19 @@ export default function Register(){
         axios.post("http://localhost:4000/customer/register", data)
             .then(res=>{
                 console.log(res);
+                toast.success(res.data.message, {
+                    position: "top-right",
+                    autoClose: 6000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    transition: Bounce,
+                    });
+                    reset();
             })
-
     }
     return(
         <>
@@ -148,13 +160,21 @@ export default function Register(){
                 <button type="submit" onClick={submit}>submit</button>
                 <button onClick={()=> reset()}>Reset</button>
             </form>
+                <ToastContainer
+                    position="top-right"
+                    autoClose={6000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick={false}
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
+                    transition={Bounce}
+                    />
 
             <hr/>
-            <div>
-                {/* <p>First Name: {form.first_name}</p>
-                <p>Last Name: {form.last_name}</p>
-                <p>Mobile: {form.mobile}</p> */}
-            </div>
         </div>
         </>
     )
