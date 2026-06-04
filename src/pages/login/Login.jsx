@@ -1,6 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import z from "zod";
 
@@ -23,12 +24,14 @@ export default function Login(){
         }
     })
 
-    function submit(data){
-        console.log(data);
+    const navigate = useNavigate();
 
+    function submit(data){
         axios.post("http://localhost:4000/customer/login", data)
         .then(res=>{
             console.log(res);
+            localStorage.setItem("jwt_token", res.data.token);
+            navigate("/transact");
             toast.success(res.data.message, {
                 position: "top-right",
                 autoClose: 6000,
@@ -80,7 +83,7 @@ export default function Login(){
                 <br/>
                 <p className="error-phrase">{errors?.password?.message}</p>
 
-                <button type="submit" onClick={submit}>submit</button>
+                <button type="submit">submit</button>
                 <button onClick={()=> reset()}>Reset</button>
             </form>
                 <ToastContainer

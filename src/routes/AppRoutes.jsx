@@ -9,6 +9,7 @@ import AboutCustomer from "../pages/about/AboutCustomer";
 import Register from "../pages/register/Register";
 import Login from "../pages/login/Login";
 import Transact from "../pages/transact/Transact";
+import { ProtectedRoute } from "./ProtectedRoute";
 
 export const router = createBrowserRouter([
     {
@@ -32,10 +33,6 @@ export const router = createBrowserRouter([
                 element: <Login/>
             },
             {
-                path: 'transact',
-                element: <Transact/>
-            },
-            {
                 path: 'about',
                 element: <About/>,
                 children:[
@@ -57,6 +54,16 @@ export const router = createBrowserRouter([
                     }
                 ]
             },
+            {
+                // path: 'transact',
+                element: <ProtectedRoute/>,
+                children: [
+                    {
+                        path: 'transact',
+                        element: <Transact/>
+                    }
+                ]
+            }
         ]
     }
 ])
